@@ -12,7 +12,7 @@ $(document).ready(function() {
 	Start();
 });
 
-function Start() {
+function Start() { //aaa
 	board = new Array();
 	score = 0;
 	pac_color = "yellow";
