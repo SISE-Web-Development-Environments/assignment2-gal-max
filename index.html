@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="./jquery-3.4.1.slim.min.js"></script>
-		<script type="text/javascript" src="./app.js"></script>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/log&reg.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="./jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+    <title>Pac-Man</title>
+</head>
+<body>
+    <header id ="menu">
+        <h1>Welcome to Pac-Man World</h1>
+        <h6>Presenters: Maxim Bragilovski, Gal Azaria</h6>
+        <a href="#" class="homeButton">Home</a>
+        <a href="#" class="logOutButton">Log Out</a>
 
-	<body>
+
+    </header>
+
+    <header id="showcase">
+
+        <br>
+        <a href="#" class="startButton">Start Game</a>
+        <a href="# " class="loginButton">Login</a>
+        <a href="#" class="RegisterButton">Register</a>
+        <br><br><br><br><br><br><br>
+        <a href="#" class="aboutButton">About</a>
+
+    </header>
+	
+	<div class ="gameBoard">
 		<div id="score">
 			<label for="lblScore">SCORE:</label>
 			<input id="lblScore" type="text" />
@@ -22,8 +48,124 @@
 			<label for="lbName">PLAYER_NAME:</label>
 			<input id="lbName" type="text" />
 		</div>
-		<div id="game">
+		<div id="game" class="abc">
 			<canvas id="canvas" height="700" width="1200"></canvas> 
 		</div>
-	</body>
+		</div>
+    <div class="showcase">
+
+    </div>
+
+    <div class="wrapper">
+        <div class="left">
+            <h3>PacMan</h3>
+            <img src=img/log.jpg alt="img">
+        </div>
+        <div class="right">
+            <div class="tabs">
+                <ul>
+                    <li class="register_li">Register</li>
+                    <li class="login_li">Login</li>
+                </ul>
+            </div>
+
+            <div class="register" id ="reg">
+
+
+                <form onsubmit="regForm()" id="regForm" name="registration">
+
+
+                    <label for="username"></label>
+                    <input type="text" name="username" id="username" placeholder="User Name" class="input"/>
+
+                    <label for="firstname"></label>
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name" class="input"/>
+
+                    <label for="lastname"></label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="input"/>
+
+                    <label for="email"></label>
+                    <input type="email" name="email" id="email" placeholder="Email" class="input"/>
+
+                    <label for="password"></label>
+                    <input type="password" name="password" id="password" placeholder="Password" class="input"/>
+
+                    <button  class="btn" type="submit">Register</button>
+
+                </form>
+<!--            <form class = "cmxform" id="signForm" method="get" action="form-handler.html" autocomplete="off">-->
+
+<!--                <div class="input_field">-->
+<!--                    <label for="username"></label>-->
+<!--                    <input type="text" id="username" placeholder="Username" class= input>-->
+
+<!--                </div>-->
+<!--                <div class="input_field">-->
+<!--                    <label for="password"></label>-->
+<!--                    <input type="password" id="password" placeholder="Password" class="input">-->
+
+<!--                </div>-->
+
+<!--                <div class="input_field">-->
+<!--                    <label for="conPassword"></label>-->
+<!--                    <input type="password" id="conPassword" placeholder="Confirm Password" class="input">-->
+
+<!--                </div>-->
+
+<!--                <div class="input_field">-->
+<!--                    <label for="name"></label>-->
+<!--                    <input type="text" id="name" placeholder="Full name" class="input">-->
+
+<!--                </div>-->
+<!--                <div class="input_field">-->
+<!--                    <label for="email"></label>-->
+<!--                    <input type="email" id="email" placeholder="Email" class="input">-->
+<!--                </div>-->
+<!--                <a href="#" id="submit" class="btn">Register</a>-->
+
+<!--            </form>-->
+
+            </div>
+
+
+            <div class="login">
+                <form onsubmit="logIn()" name="registration">
+
+
+                    <label for="loginUser"></label>
+                    <input type="text" name="loginUser" id="loginUser" placeholder="User Name" class="input"/>
+
+                    <label for="loginPassword"></label>
+                    <input type="password" name="loginPassword" id="loginPassword" placeholder="Password" class="input"/>
+
+                    <button id="login" class="btn" type="submit">Login</button>
+
+                </form>
+<!--                <div class="input_field">-->
+<!--                    <input type="text" placeholder="Username" class="input">-->
+<!--                </div>-->
+<!--                <div class="input_field">-->
+<!--                    <input type="password" placeholder="Password" class="input">-->
+<!--                </div>-->
+<!--                <a href="#" id="login" class="btn">Login</a>-->
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="code/menu.js"></script>
+    <script src="code/login.js"></script>
+    <script src="code/form-validation.js"></script>
+
+</body>
+
+<footer id="footer">
+    <p>Ⓒ PacMan World</p>
+    <p>Please feel free to contact us: Pac@Man.World</p>
+
+</footer>
+
 </html>

@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    
+
+}
+html{
+    min-height: 100%;
+}
+
+body{
+    margin:0;
+    font-family: Arial, "Helvetica Neue",
+    Helvetica, sans-serif;
+    font-size: 17px;
+    color: brown;
+    line-height: 1.6;
+}
+
+#menu{
+    background: black;
+    background-size: cover;
+    background-position: center;
+    height: 15vh;
+    display: flex;
+    /*flex-direction: column;*/
+    padding:0 20px;
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+}
+#menu .homeButton{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border: yellow 2px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 20px;
+
+}
+
+#menu .homeButton:hover{
+    background: white;
+    color: black;
+}
+
+#showcase{
+    background-image: url('../img/backround.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    padding:0 20px;
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+}
+#menu h1{
+    color: white;
+    letter-spacing: 2px;
+    font-size: 50px;
+    line-height: 1.2;
+    margin-right: 7px;
+    font-family: 'Roboto Mono', monospace;
+}
+#menu h6{
+    color: yellow;
+    font-size: 20px;
+    margin:15px;
+    letter-spacing: 2px;
+
+
+
+}
+
+#showcase .loginButton{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border: yellow 2px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 20px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
+#showcase .RegisterButton{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border: yellow 2px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
+#showcase .loginButton:hover{
+    background: white;
+    color: black;
+}
+
+
+#showcase .startButton{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border: yellow 2px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
+#showcase .startButton:hover{
+    background: white;
+    color: black;
+}
+
+#menu .logOutButton{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border: yellow 2px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
+#menu .logOutButton:hover{
+    background: white;
+    color: black;
+}
+
+
+#showcase .RegisterButton:hover{
+    background: white;
+    color: black;
+}
+
+#showcase .aboutButton{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border: yellow 2px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
+#showcase .aboutButton:hover{
+    background: white;
+    color: black;
+}
+.wrapper{
+    display: flex;
+    max-width: 560px;
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper .left,
+wrapper .right{
+    width: 50%;
+    height: 100%;
+    padding: 30px;
+}
+.wrapper .left h3{
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 20px;
+}
+.wrapper .left img{
+    display: block;
+    width: 220px;
+    margin: 1px auto 0;
+}
+
+.wrapper .right{
+
+}
+
+.wrapper .right .tabs ul{
+    text-align: center;
+
+}
+.wrapper .right .tabs ul li{
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #494f57;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.wrapper .right .register,
+.wrapper .right .login{
+    margin-top: 20px;
+}
+.wrapper .right .input_field{
+    margin-bottom: 15px;
+
+}
+
+.wrapper .right .input{
+    width: 100%;
+    margin-up:15px;
+    margin-bottom: 6px;
+    padding: 10px 15px;
+    border: 0;
+    font-size: 12px;
+    background: #ecebeb;
+}
+
+.wrapper .right .btn{
+    font-size: 18px;
+    background: black;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: white;
+    position: static;
+    border: yellow 2px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 20px;
+    align-items: center;
+
+}
+
+.wrapper .right .btn:hover{
+    background: white;
+    color: black;
+}
+
+.wrapper .right .tabs ul li.active{
+    border-bottom: 2px solid #494f57;
+}
+.error_form
+{
+    top: 12px;
+    color: rgb(216, 15, 15);
+    font-size: 15px;
+    font-family: Helvetica;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size:20px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
