@@ -20,6 +20,7 @@ var specialPillTime// = 0;
 var stop// = false;
 var moveSpeed //= 1;
 var timerforEndstop //= 0;
+var checker;
 //var music
 
 var PLAYER_NAME = "Max"
@@ -40,6 +41,7 @@ $(document).ready(function () {
 
 
 function Start() {
+	checker = false;
 //	music = document.getElementById("Music")
 //	music.play();
 	pacman_remain = 5
@@ -181,7 +183,7 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 200);
+	interval = setInterval(UpdatePosition, 100);
 }
 
 function findRandomEmptyCell(board) {
@@ -325,7 +327,9 @@ function Draw() {
 }
 
 function UpdatePosition() {
+	checker = false;
 	board[shape.i][shape.j] = 0;
+	movePackman();
 	if (!stop) {
 		if (slowMotion > 0) {
 			if (slowMotion % 4 == 2) {
@@ -366,7 +370,6 @@ function UpdatePosition() {
 			specialPillTime++;
 		}
 	}
-	movePackman();
 	eatBall();
 	ExtraPointMove();
 	collision();
@@ -461,7 +464,6 @@ function ExtraPointMove() {
 }
 
 function collision() {
-	let checker = false
 	for(let u=0 ; u < GHOUST_NUMBER ; u++){
 		if (shape.i == ghostArray[u].x && shape.j == ghostArray[u].y)
 		checker = true
@@ -496,6 +498,9 @@ function movePackman() {
 	var x = GetKeyPressed();
 	if (x == 1) {
 		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
+			if(shape.j > 0 && board[shape.i][shape.j - 1] == 5){
+				checker = true;
+			}
 			shape.j--;
 			angle.x = 1.1;
 			angle.y = 2.9;
@@ -503,6 +508,9 @@ function movePackman() {
 	}
 	if (x == 2) {
 		if (shape.j < board[0].length && board[shape.i][shape.j + 1] != 4) {
+			if(shape.j < board[0].length && board[shape.i][shape.j + 1] == 5){
+				checker = true;
+			}
 			shape.j++;
 			angle.x = 0.15;
 			angle.y = 1.85;
@@ -510,6 +518,9 @@ function movePackman() {
 	}
 	if (x == 3) {
 		if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
+			if(shape.i > 0 && board[shape.i - 1][shape.j]  == 5){
+				checker = true;
+			}
 			shape.i--;
 			angle.x = 1.6;
 			angle.y = 3.35;
@@ -517,6 +528,9 @@ function movePackman() {
 	}
 	if (x == 4) {
 		if (shape.i < board.length && board[shape.i + 1][shape.j] != 4) {
+			if(shape.i < board.length && board[shape.i + 1][shape.j] == 5){
+				checker = true;
+			}
 			shape.i++;
 			angle.x = 0.7;
 			angle.y = 2.3;
