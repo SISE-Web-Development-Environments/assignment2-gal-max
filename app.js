@@ -21,6 +21,10 @@ var stop// = false;
 var moveSpeed //= 1;
 var timerforEndstop //= 0;
 var checker;
+var dir = -3;
+var pctOpen = 0.05;
+var fltOpen = new Object();
+var prevPackMove
 //var music
 
 var PLAYER_NAME = "Max"
@@ -41,6 +45,9 @@ $(document).ready(function () {
 
 
 function Start() {
+	prevPackMove = 0;
+	fltOpen.x = 0.15
+	fltOpen.y = 1.85
 	checker = false;
 //	music = document.getElementById("Music")
 //	music.play();
@@ -183,7 +190,7 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 100);
+	interval = setInterval(UpdatePosition, 150);
 }
 
 function findRandomEmptyCell(board) {
@@ -225,7 +232,7 @@ function GetKeyPressed() {
 	}
 }
 
-function Draw() {
+function Draw(pctOpen) {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = score
 	lblTime.value = time_elapsed
@@ -239,14 +246,14 @@ function Draw() {
 			center.y = i * 20 + 10;
 			if (board[i][j] == 2) { //2
 				context.beginPath();
-				context.arc(center.x, center.y, 10, angle.x * Math.PI, angle.y * Math.PI); // half circle
+				context.arc(center.x, center.y, 10, (this.angle.x - pctOpen.x) * Math.PI, (this.angle.y + pctOpen.y) * Math.PI);
 				context.lineTo(center.x, center.y);
-				context.fillStyle = pac_color; //color
+				context.closePath();
+				context.fillStyle = "#FF0";
 				context.fill();
-				context.beginPath();
-				context.arc(center.x + 5, center.y - 5, 2, 0, 2 * Math.PI); // circle
-				context.fillStyle = "black"; //color
-				context.fill();
+				context.strokeStyle = '#000';
+				context.stroke();
+			 
 			} else if (board[i][j] == 11) { //1
 				context.beginPath();
 				context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
@@ -397,7 +404,15 @@ function UpdatePosition() {
 		Start()
 	}
 	else {
-		Draw();
+		fltOpen.x = pctOpen*dir
+		fltOpen.y = pctOpen*dir
+		if(dir ==3){
+		dir = -3;
+		}
+		else{
+			dir++
+		}
+		Draw(fltOpen);
 	}
 }
 
@@ -495,15 +510,18 @@ function collision() {
 }
 
 function movePackman() {
+	let isMoved = false;
 	var x = GetKeyPressed();
-	if (x == 1) {
+	if (x == 1 ) {
 		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
 			if(shape.j > 0 && board[shape.i][shape.j - 1] == 5){
 				checker = true;
 			}
 			shape.j--;
-			angle.x = 1.1;
-			angle.y = 2.9;
+			angle.x = 1.15;
+			angle.y = 2.85;
+			isMoved = true;
+			prevPackMove = x;
 		}
 	}
 	if (x == 2) {
@@ -514,6 +532,8 @@ function movePackman() {
 			shape.j++;
 			angle.x = 0.15;
 			angle.y = 1.85;
+			isMoved = true;
+			prevPackMove = x;
 		}
 	}
 	if (x == 3) {
@@ -522,8 +542,10 @@ function movePackman() {
 				checker = true;
 			}
 			shape.i--;
-			angle.x = 1.6;
-			angle.y = 3.35;
+			angle.x = 1.66;
+			angle.y = 1.35;
+			isMoved = true;
+			prevPackMove = x;
 		}
 	}
 	if (x == 4) {
@@ -532,8 +554,53 @@ function movePackman() {
 				checker = true;
 			}
 			shape.i++;
-			angle.x = 0.7;
-			angle.y = 2.3;
+			angle.x = 0.65;
+			angle.y = 2.35;
+			isMoved = true;
+			prevPackMove = x;
+		}
+	}
+	if(!isMoved){
+		if (prevPackMove == 1 ) {
+			if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
+				if(shape.j > 0 && board[shape.i][shape.j - 1] == 5){
+					checker = true;
+				}
+				shape.j--;
+				angle.x = 1.15;
+				angle.y = 2.85;
+
+			}
+		}
+		if (prevPackMove == 2) {
+			if (shape.j < board[0].length && board[shape.i][shape.j + 1] != 4) {
+				if(shape.j < board[0].length && board[shape.i][shape.j + 1] == 5){
+					checker = true;
+				}
+				shape.j++;
+				angle.x = 0.15;
+				angle.y = 1.85;
+			}
+		}
+		if (prevPackMove == 3) {
+			if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
+				if(shape.i > 0 && board[shape.i - 1][shape.j]  == 5){
+					checker = true;
+				}
+				shape.i--;
+				angle.x = 1.66;
+				angle.y = 1.35;
+			}
+		}
+		if (prevPackMove == 4) {
+			if (shape.i < board.length && board[shape.i + 1][shape.j] != 4) {
+				if(shape.i < board.length && board[shape.i + 1][shape.j] == 5){
+					checker = true;
+				}
+				shape.i++;
+				angle.x = 0.65;
+				angle.y = 2.35;
+			}
 		}
 	}
 }
