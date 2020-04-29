@@ -28,8 +28,9 @@ $(document).ready(function (e) {
         $(".register_li").removeClass("active");
         $(".register").hide();
         $(".login").show();
-        $(".gameBoard").hide();
+        $(".gameBoard").hide()
         initiated = true;
+
 
     });
 
