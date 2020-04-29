@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/log&reg.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/log&reg.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="./jquery-3.4.1.slim.min.js"></script>
-	<script type="text/javascript" src="./app.js"></script>
+    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
     <title>Pac-Man</title>
+
+    <style>
+        .gameBoard {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    <header id ="menu">
+    <header id="menu">
         <h1>Welcome to Pac-Man World</h1>
         <h6>Presenters: Maxim Bragilovski, Gal Azaria</h6>
         <a href="#" class="homeButton">Home</a>
@@ -30,28 +40,77 @@
         <a href="#" class="aboutButton">About</a>
 
     </header>
-	
-	<div class ="gameBoard">
-		<div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
-		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
-		</div>
-		<div id="lives">
-			<label for="lbllives">LIVES:</label>
-			<input id="lbllives" type="text" />
-		</div>
-		<div id="Name">
-			<label for="lbName">PLAYER_NAME:</label>
-			<input id="lbName" type="text" />
-		</div>
-		<div id="game" class="abc">
-			<canvas id="canvas" height="700" width="1200"></canvas> 
-		</div>
-		</div>
+
+    <div class="gameBoard">
+        <table>
+            <tr>
+                <td>
+                    <div id="score">
+                        <label for="lblScore">SCORE:</label>
+                        <input id="lblScore" type="text" />
+                    </div>
+                </td>
+                <td>
+                    <div id="time">
+                        <label for="lblTime">TIME:</label>
+                        <input id="lblTime" type="text" />
+                    </div>
+                </td>
+                <td>
+                    <div id="lives">
+                        <label for="lbllives">LIVES:</label>
+                        <input id="lbllives" type="text" />
+                    </div>
+                </td>
+                <td>
+                    <div id="Name">
+                        <label for="lbName">PLAYER_NAME:</label>
+                        <input id="lbName" type="text" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br /><br /><br />
+        <table>
+            <tr>
+                <td>
+                    <a href="#" class="newGame">Start New Game</a>
+                </td>
+                <td>
+                    <div id="game" class="abc" stype=" ">
+                        <canvas id="canvas" height="700" width="700"></canvas>
+                    </div>
+                </td>
+                <td valign="top">
+                    <p><b style="color:grey">Grey Circle: </b> 5 points.
+                        <br />
+                        <b style="color:red">Red Circle: </b> 15 points.
+                        <br />
+                        <b style="color:orange">Orange Circle: </b> 25 points.
+                        <br />
+                        <b style="color:SaddleBrown">Brown Circle: </b> spwans in random place and freeze the enemy.
+                        <br />
+                        <b style="color:Tan">Tan Circle: </b> slow the enemy.
+                    </p>
+
+                    <p><b>KEYS:</b>
+                        <br />
+                        Up :
+                        <br />
+                        Down :
+                        <br />
+                        Left :
+                        <br />
+                        Right :
+                </td>
+
+            </tr>
+        </table>
+
+    </div>
+
+
+
     <div class="showcase">
 
     </div>
@@ -69,61 +128,61 @@
                 </ul>
             </div>
 
-            <div class="register" id ="reg">
+            <div class="register" id="reg">
 
 
                 <form onsubmit="regForm()" id="regForm" name="registration">
 
 
                     <label for="username"></label>
-                    <input type="text" name="username" id="username" placeholder="User Name" class="input"/>
+                    <input type="text" name="username" id="username" placeholder="User Name" class="input" />
 
                     <label for="firstname"></label>
-                    <input type="text" name="firstname" id="firstname" placeholder="First Name" class="input"/>
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name" class="input" />
 
                     <label for="lastname"></label>
-                    <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="input"/>
+                    <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="input" />
 
                     <label for="email"></label>
-                    <input type="email" name="email" id="email" placeholder="Email" class="input"/>
+                    <input type="email" name="email" id="email" placeholder="Email" class="input" />
 
                     <label for="password"></label>
-                    <input type="password" name="password" id="password" placeholder="Password" class="input"/>
+                    <input type="password" name="password" id="password" placeholder="Password" class="input" />
 
-                    <button  class="btn" type="submit">Register</button>
+                    <button class="btn" type="submit">Register</button>
 
                 </form>
-<!--            <form class = "cmxform" id="signForm" method="get" action="form-handler.html" autocomplete="off">-->
+                <!--            <form class = "cmxform" id="signForm" method="get" action="form-handler.html" autocomplete="off">-->
 
-<!--                <div class="input_field">-->
-<!--                    <label for="username"></label>-->
-<!--                    <input type="text" id="username" placeholder="Username" class= input>-->
+                <!--                <div class="input_field">-->
+                <!--                    <label for="username"></label>-->
+                <!--                    <input type="text" id="username" placeholder="Username" class= input>-->
 
-<!--                </div>-->
-<!--                <div class="input_field">-->
-<!--                    <label for="password"></label>-->
-<!--                    <input type="password" id="password" placeholder="Password" class="input">-->
+                <!--                </div>-->
+                <!--                <div class="input_field">-->
+                <!--                    <label for="password"></label>-->
+                <!--                    <input type="password" id="password" placeholder="Password" class="input">-->
 
-<!--                </div>-->
+                <!--                </div>-->
 
-<!--                <div class="input_field">-->
-<!--                    <label for="conPassword"></label>-->
-<!--                    <input type="password" id="conPassword" placeholder="Confirm Password" class="input">-->
+                <!--                <div class="input_field">-->
+                <!--                    <label for="conPassword"></label>-->
+                <!--                    <input type="password" id="conPassword" placeholder="Confirm Password" class="input">-->
 
-<!--                </div>-->
+                <!--                </div>-->
 
-<!--                <div class="input_field">-->
-<!--                    <label for="name"></label>-->
-<!--                    <input type="text" id="name" placeholder="Full name" class="input">-->
+                <!--                <div class="input_field">-->
+                <!--                    <label for="name"></label>-->
+                <!--                    <input type="text" id="name" placeholder="Full name" class="input">-->
 
-<!--                </div>-->
-<!--                <div class="input_field">-->
-<!--                    <label for="email"></label>-->
-<!--                    <input type="email" id="email" placeholder="Email" class="input">-->
-<!--                </div>-->
-<!--                <a href="#" id="submit" class="btn">Register</a>-->
+                <!--                </div>-->
+                <!--                <div class="input_field">-->
+                <!--                    <label for="email"></label>-->
+                <!--                    <input type="email" id="email" placeholder="Email" class="input">-->
+                <!--                </div>-->
+                <!--                <a href="#" id="submit" class="btn">Register</a>-->
 
-<!--            </form>-->
+                <!--            </form>-->
 
             </div>
 
@@ -133,25 +192,29 @@
 
 
                     <label for="loginUser"></label>
-                    <input type="text" name="loginUser" id="loginUser" placeholder="User Name" class="input"/>
+                    <input type="text" name="loginUser" id="loginUser" placeholder="User Name" class="input" />
 
                     <label for="loginPassword"></label>
-                    <input type="password" name="loginPassword" id="loginPassword" placeholder="Password" class="input"/>
+                    <input type="password" name="loginPassword" id="loginPassword" placeholder="Password"
+                        class="input" />
 
                     <button id="login" class="btn" type="submit">Login</button>
 
                 </form>
-<!--                <div class="input_field">-->
-<!--                    <input type="text" placeholder="Username" class="input">-->
-<!--                </div>-->
-<!--                <div class="input_field">-->
-<!--                    <input type="password" placeholder="Password" class="input">-->
-<!--                </div>-->
-<!--                <a href="#" id="login" class="btn">Login</a>-->
+                <!--                <div class="input_field">-->
+                <!--                    <input type="text" placeholder="Username" class="input">-->
+                <!--                </div>-->
+                <!--                <div class="input_field">-->
+                <!--                    <input type="password" placeholder="Password" class="input">-->
+                <!--                </div>-->
+                <!--                <a href="#" id="login" class="btn">Login</a>-->
             </div>
         </div>
     </div>
 
+    <audio id="Music">
+        <source src="ssong.mp3" type="audio/mpeg">
+    </audio>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

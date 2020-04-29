@@ -33,6 +33,14 @@ $(document).ready(function (e) {
 
     });
 
+    $(".newGame").click(function ()
+    {
+        Start();
+        stopGame();
+        initiated = true;
+
+    });
+
     $(".logOutButton").click(function ()
     {
         $(".wrapper").hide();
@@ -53,6 +61,7 @@ $(document).ready(function (e) {
         $("#showcase").hide()
         $(".register").hide();
         $(".login").hide();
+        Start();
         initiated = true;
 
     });

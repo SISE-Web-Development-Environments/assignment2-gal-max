@@ -1,26 +1,26 @@
-var context;
-var shape = new Object();
+var context ;
+var shape// = new Object();
 var board;
 var score;
 var pac_color;
 var start_time;
 var time_elapsed;
-var angle = new Object();
+var angle// = new Object();
 var interval;
 var board;
-var ghostArray = []
-var arrayPos = [];
-var ExtraPoint = new Object()
-var counter = 0;
+var ghostArray //= []
+var arrayPos //= [];
+var ExtraPoint //= new Object()
+var counter// = 0;
 var colors = ["DarkBlue", "CornflowerBlue"]
-var turn = 0;
-var slowMotion = 0;
-var specialPill = new Object()
-var specialPillTime = 0;
-var stop = false;
-var moveSpeed = 1;
-var timerforEndstop = 0;
-
+var turn //= 0;
+var slowMotion //= 0;
+var specialPill //= new Object()
+var specialPillTime// = 0;
+var stop// = false;
+var moveSpeed //= 1;
+var timerforEndstop //= 0;
+//var music
 
 var PLAYER_NAME = "Max"
 var TIME = 200;
@@ -35,14 +35,29 @@ var RIGHT = 40
 
 
 $(document).ready(function () {
-	context = canvas.getContext("2d");
-	Start();
+	 context = canvas.getContext("2d");
 });
 
-function Start() {
 
+function Start() {
+//	music = document.getElementById("Music")
+//	music.play();
+	pacman_remain = 5
+	shape = new Object();
+	angle = new Object();
+	ghostArray = []
+	arrayPos = [];
+	ExtraPoint = new Object()
+	counter = 0;
 	ExtraPoint.x = 22
 	ExtraPoint.y = 20
+	turn = 0;
+ 	slowMotion = 0;
+ 	specialPill = new Object()
+ 	specialPillTime = 0;
+ 	this.stop = false;
+ 	moveSpeed = 1;
+	timerforEndstop = 0;
 	ExtraPoint.live = true
 	board = [
 		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
@@ -166,7 +181,7 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 150);
+	interval = setInterval(UpdatePosition, 200);
 }
 
 function findRandomEmptyCell(board) {
@@ -233,7 +248,7 @@ function Draw() {
 			} else if (board[i][j] == 11) { //1
 				context.beginPath();
 				context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
-				context.fillStyle = "black"; //color
+				context.fillStyle = "grey"; //color
 				context.fill();
 			}
 			else if (board[i][j] == 12) { //1
@@ -276,7 +291,7 @@ function Draw() {
 			else if (board[i][j] == 4) { // 4
 				context.beginPath();
 				context.rect(center.x - 10, center.y - 10, 20, 20);
-				context.fillStyle = "grey"; //color
+				context.fillStyle = "black"; //color
 				context.fill();
 			} else if (board[i][j] == 5) {
 				context.beginPath();
@@ -362,19 +377,29 @@ function UpdatePosition() {
 	}
 	if (time_elapsed > TIME && score < 100) {
 		window.clearInterval(interval);
+	//	music.pause()
 		window.alert("You are better than " + score + " points!");
+		Start()
 	}
 	if (time_elapsed > TIME && score >= 100) {
 		window.clearInterval(interval);
+	//	music.pause()
 		window.alert("Winner!!!");
+		Start()
 	}
 	if (pacman_remain == 0) {
 		window.clearInterval(interval);
+	//	music.pause()
 		window.alert("Loser!");
+		Start()
 	}
 	else {
 		Draw();
 	}
+}
+
+function stopGame(){
+	window.clearInterval(interval);
 }
 
 function ExtraPointMove() {
@@ -436,7 +461,12 @@ function ExtraPointMove() {
 }
 
 function collision() {
-	if (board[shape.i][shape.j] == 5) {
+	let checker = false
+	for(let u=0 ; u < GHOUST_NUMBER ; u++){
+		if (shape.i == ghostArray[u].x && shape.j == ghostArray[u].y)
+		checker = true
+	}
+	if (checker) {
 		score = score - 10
 		pacman_remain = pacman_remain - 1
 		for (let i = 0; i < GHOUST_NUMBER; i++) {
@@ -595,14 +625,14 @@ function goDown(k) {
 }
 
 function goUp(k) {
-	if (ghostArray[k].x > 0 && board[ghostArray[k].x - 1][ghostArray[k].y] != 4) { //up
+	if (ghostArray[k].x > 0 && board[ghostArray[k].x - 1][ghostArray[k].y] != 4 ) { //up
 		ghostArray[k].x--;
 		//board[ghostArray[k].x][ghostArray[k].y] = 5;
 	}
 }
 
 function goLeft(k) {
-	if (ghostArray[k].y > 0 && board[ghostArray[k].x][ghostArray[k].y - 1] != 4) { //left
+	if (ghostArray[k].y > 0 && board[ghostArray[k].x][ghostArray[k].y - 1] != 4 ) { //left
 		ghostArray[k].y--;
 		//	board[ghostArray[k].x][ghostArray[k].y] = 5;
 	}
@@ -615,3 +645,9 @@ function goRight(k) {
 	}
 }
 
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
