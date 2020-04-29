@@ -37,11 +37,11 @@
         <a href="# " class="loginButton">Login</a>
         <a href="#" class="RegisterButton">Register</a>
         <br><br><br><br><br><br><br>
-        <a href="#" class="aboutButton">About</a>
+        <a href="#" id="myBtn" class="aboutButton">About</a>
 
     </header>
 
-    <div class="gameBoard">
+    <div class="gameBoard" id="gameBoard">
         <table>
             <tr>
                 <td>
@@ -107,6 +107,19 @@
     </div>
 
 
+<!--    <button id="myBtn">Open Modal</button>-->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Pac-Man World Game</h1>
+            <p>Developed by Maxim Bragilovski, Gal Azaria</p>
+            <p>JQuery Plugins: jquery Version 3.4.1, jquery-validate Version 1.19.1 </p>
+            <p>Difficulties: </p>
+        </div>
+
+    </div>
 
     <div class="showcase">
 
@@ -218,6 +231,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="code/menu.js"></script>
     <script src="code/login.js"></script>
+    <script src="code/about.js"></script>
     <script src="code/form-validation.js"></script>
 
 </body>

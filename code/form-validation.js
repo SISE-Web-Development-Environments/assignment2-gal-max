@@ -13,9 +13,7 @@ function regForm() {
     $('#regForm').validate({
         // Specify validation rules
         rules: {
-            // The key name on the left side is the name attribute
-            // of an input field. Validation rules are defined
-            // on the right side
+
             username: "required",
             firstname:{
                 required: true,
