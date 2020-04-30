@@ -36,8 +36,8 @@ $(document).ready(function (e) {
 
     $(".newGame").click(function ()
     {
-        Start();
         stopGame();
+        Start();
         initiated = true;
 
     });
@@ -104,6 +104,8 @@ $(document).ready(function (e) {
 
     $(".homeButton").click(function()
     {
+        stopGame();
+        $(".gameBoard").hide();
         $(".wrapper").hide();
         $("#showcase").show();
         initiated = true;
