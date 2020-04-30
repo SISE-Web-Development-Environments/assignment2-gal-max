@@ -381,17 +381,17 @@ function UpdatePosition() {
 	ExtraPointMove();
 	collision();
 	var currentTime = new Date();
-	time_elapsed = (currentTime - start_time) / 1000;
+	time_elapsed = TIME - (currentTime - start_time) / 1000;
 	if (score >= 20 && time_elapsed <= 10) {
 		pac_color = "green";
 	}
-	if (time_elapsed > TIME && score < 100) {
+	if (time_elapsed == 0 && score < 100) {
 		window.clearInterval(interval);
 	//	music.pause()
 		window.alert("You are better than " + score + " points!");
 		Start()
 	}
-	if (time_elapsed > TIME && score >= 100) {
+	if (time_elapsed == 0 && score >= 100) {
 		window.clearInterval(interval);
 	//	music.pause()
 		window.alert("Winner!!!");

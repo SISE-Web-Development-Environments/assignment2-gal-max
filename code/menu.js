@@ -28,7 +28,7 @@ $(document).ready(function (e) {
         $(".register_li").removeClass("active");
         $(".register").hide();
         $(".login").show();
-        $(".gameBoard").hide()
+        $(".gameBoard").hide();
         initiated = true;
 
 
@@ -50,6 +50,8 @@ $(document).ready(function (e) {
         $(".RegisterButton").show();
         $(".loginButton").show();
         $(".logOutButton").hide();
+        stopGame();
+        $(".gameBoard").hide();
         initiated = true;
 
     });
