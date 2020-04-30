@@ -253,6 +253,21 @@ function Draw(pctOpen) {
 				context.fill();
 				context.strokeStyle = '#000';
 				context.stroke();
+				context.beginPath();
+				if(prevPackMove == 0 ||prevPackMove == 2){
+				context.arc(center.x - 2 , center.y - 5, 2, 0, 2 * Math.PI); // circle
+				}
+				if(prevPackMove == 1){
+				context.arc(center.x + 2, center.y - 5, 2, 0, 2 * Math.PI); // circle
+				}
+				if(prevPackMove == 3){
+					context.arc(center.x - 2, center.y + 5, 2, 0, 2 * Math.PI); // circle
+				}
+				if(prevPackMove == 4){
+					context.arc(center.x + 2, center.y - 5, 2, 0, 2 * Math.PI); // circle
+				}
+				context.fillStyle = "black"; //color					
+				context.fill();
 			 
 			} else if (board[i][j] == 11) { //1
 				context.beginPath();
@@ -302,13 +317,10 @@ function Draw(pctOpen) {
 				context.rect(center.x - 10, center.y - 10, 20, 20);
 				context.fillStyle = "black"; //color
 				context.fill();
+
 			} else if (board[i][j] == 5) {
 				context.beginPath();
-				context.arc(
-					(center.x - 10) + 10,
-					(center.y - 10) + 10,
-					10,
-					0, Math.PI, true
+				context.arc((center.x - 10) + 10,(center.y - 10) + 10,10,0, Math.PI, true
 				);
 				if (stop) {
 					context.fillStyle = "Blue";
@@ -327,6 +339,18 @@ function Draw(pctOpen) {
 				context.lineTo((center.x - 10) + 20, (center.y - 10) + 10);
 				context.closePath();
 				context.stroke();
+				context.fill();
+
+				context.beginPath();
+				context.arc(center.x - 4, center.y - 5, 3, 0, 2 * Math.PI); // circle
+				context.arc(center.x + 4, center.y - 5, 3, 0, 2 * Math.PI); // circle
+				context.fillStyle = "black"; //color
+				context.fill();
+
+				context.beginPath();
+				context.arc(center.x - 3, center.y - 5, 1, 0, 2 * Math.PI); // circle
+				context.arc(center.x + 5, center.y - 5, 1, 0, 2 * Math.PI); // circle
+				context.fillStyle = "White"; //color
 				context.fill();
 			}
 		}
