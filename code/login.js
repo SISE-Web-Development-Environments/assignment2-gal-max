@@ -20,6 +20,7 @@ function logIn(){
     if(checkUser(userName, password)){
         alert("You have been successfully logged in!")
         userLogedIn = true;
+        currUser = keyUser[userName];
         $(".wrapper").hide();
         $("#showcase").show()
         $(".startButton").show();
