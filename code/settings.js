@@ -61,6 +61,7 @@ function setSettings() {
         submitHandler: function(form) {
             //createNewUser();
             $(".wrapSet").hide();
+            $("#gameSetting").hide();
             collectSettings();
 
         }

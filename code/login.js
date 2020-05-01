@@ -1,24 +1,23 @@
 let userLogedIn = false;
-$(document).ready(function () {
-
-
-    if(userLogedIn){
-
-    }
-    else {
-        $(".loginButton").show();
-        $(".RegisterButton").show();
-       // $(".startButton").hide();
-
-    }
-
-});
+// $(document).ready(function () {
+//
+//
+//     if(userLogedIn){
+//
+//     }
+//     else {
+//         $(".loginButton").show();
+//         $(".RegisterButton").show();
+//        // $(".startButton").hide();
+//
+//     }
+//
+// });
 
 function logIn(){
     const userName = document.getElementById("loginUser").value;
     const password = document.getElementById("loginPassword").value;
     if(checkUser(userName, password)){
-        alert("You have been successfully logged in!")
         userLogedIn = true;
         currUser = keyUser[userName];
         $(".wrapper").hide();
@@ -27,9 +26,13 @@ function logIn(){
         $(".logOutButton").show();
         $(".RegisterButton").hide();
         $(".loginButton").hide();
+        // alert("You have been successfully logged in!")
+
+        return;
     }
     else{
-        alert("Please try again")
+        // alert("Please try again")
+        return;
     }
 }
 

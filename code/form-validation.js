@@ -72,17 +72,17 @@ function createNewUser(){
     const firstName = document.getElementById("firstname").value;
     const lastName = document.getElementById("lastname").value;
     const email = document.getElementById("email").value;
-    const date = "a";
+    const date = document.getElementById("birthday").value;
 
     let checkUser = keyUser[userName]
     if(checkUser!=null){
-        alert("User with username "+userName+" already exists. Please try again.");
+        // alert("User with username "+userName+" already exists. Please try again.");
         return;
     }
 
     let userList = [password,firstName,lastName,email,date,userName]
     keyUser[userName] = userList;
-    alert("An account has been successfully created.")
+    // alert("An account has been successfully created.")
     $(".login_li").addClass("active");
     $(".register_li").removeClass("active");
     $(".register").hide();

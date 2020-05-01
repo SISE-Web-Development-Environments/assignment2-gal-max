@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="./jquery-3.4.1.slim.min.js"></script>
-    <script type="text/javascript" src="./app.js"></script>
-    <title>Pac-Man</title>
 
+    <title>Pac-Man</title>
+    <script>
+        var init = false;
+    </script>
     <style>
         .gameBoard {
             margin: auto;
@@ -147,22 +148,22 @@
             <form onsubmit="regForm()" id="regForm" name="registration">
 
 
-                <label for="username"></label>
+<!--                <label for="username"></label>-->
                 <input type="text" name="username" id="username" placeholder="User Name" class="input"/>
 
-                <label for="firstname"></label>
+<!--                <label for="firstname"></label>-->
                 <input type="text" name="firstname" id="firstname" placeholder="First Name" class="input"/>
 
-                <label for="lastname"></label>
+<!--                <label for="lastname"></label>-->
                 <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="input"/>
 
-                <label for="email"></label>
+<!--                <label for="email"></label>-->
                 <input type="email" name="email" id="email" placeholder="Email" class="input"/>
 
-                <label for="password"></label>
+<!--                <label for="password"></label>-->
                 <input type="password" name="password" id="password" placeholder="Password" class="input"/>
 
-                <label for="birthday"></label>
+<!--                <label for="birthday"></label>-->
                 <input placeholder="Birthday" required type="date" name="birthday" id="birthday" name="birthday" class="input">
 
                 <button class="btn" type="submit">Register</button>
@@ -205,16 +206,18 @@
 
 
         <div class="login">
-            <form onsubmit="logIn()" name="registration">
-                <label for="loginUser"></label>
+            <form onsubmit="logIn()" name="">
+<!--                <label for="loginUser"></label>-->
                 <input type="text" name="loginUser" id="loginUser" placeholder="User Name" class="input"/>
 
-                <label for="loginPassword"></label>
+<!--                <label for="loginPassword"></label>-->
                 <input type="password" name="loginPassword" id="loginPassword" placeholder="Password"
                        class="input"/>
 
-                <button id="login" class="btn" type="submit">Login</button>
             </form>
+
+            <button onclick="logIn()" class="btn" type="submit">Login</button>
+
 
         </div>
     </div>
@@ -227,7 +230,7 @@
 
             <span>
 
-                <label for="upButtom">Up Key</label>  <output id="upB">38</output>
+                <label>Up Key</label>  <output id="upB">38</output>
                 <input maxlength="1" type="text" id="upButtom" name="upButtom" class="input"
                        onkeydown="upButtom.value=''; upB.value=event.keyCode"/>
 
@@ -235,7 +238,7 @@
 
 
             <span>
-            <label for="downButtom">Down Key</label> <output id="downB">40</output>
+            <label>Down Key</label> <output id="downB">40</output>
                 <input maxlength="1" type="text" id="downButtom" name="downButtom" class="input"
                        onkeydown="downButtom.value=''; downB.value=event.keyCode"/>
 
@@ -243,7 +246,7 @@
 
 
             <span>
-            <label for="leftButtom">Left Key</label> <output id="leftB">37</output>
+            <label>Left Key</label> <output id="leftB">37</output>
                 <input maxlength="1" type="text" id="leftButtom" name="leftButtom" class="input"
                        onkeydown="leftButtom.value=''; leftB.value=event.keyCode"/>
 
@@ -251,20 +254,17 @@
 
 
             <span>
-            <label for="rightButtom">Right Key</label> <output id="rightB">39</output>
+            <label>Right Key</label> <output id="rightB">39</output>
                 <input maxlength="1" type="text" id="rightButtom" name="rightButtom" class="input"
                        onkeydown="rightButtom.value=''; rightB.value=event.keyCode"/>
 
             </span>
 
 
-            <label for="numberBalls"></label>
             <input type="text" name="numberBalls" id="numberBalls" placeholder="Number Of Balls, 50-90" class="input"/>
 
-            <label for="timer"></label>
             <input type="text" name="timer" id="timer" placeholder="Set Time, above 60 seconds" class="input"/>
 
-            <label for="monsters"></label>
             <input type="text" name="monsters" id="monsters" placeholder="Number Of Monsters, 1-4" class="input"/>
 
             <button id="setSet" class="btn" type="submit">Apply Settings And Start The Game</button>
@@ -280,15 +280,32 @@
 <!--    </audio>-->
 
 
+
+<script src="./jquery-3.4.1.slim.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+<script src="./app.js"></script>
 
 <script src="code/menu.js"></script>
 <script src="code/login.js"></script>
 <script src="code/about.js"></script>
+<script src="code/bottom.js"></script>
 <script src="code/settings.js   "></script>
+<script src="code/firstRun.js"></script>
 <script src="code/form-validation.js"></script>
+
+<script>
+    if(init) {
+
+    }
+    else{
+        openWeb();
+        initiateSystem();
+        init = true
+    }
+</script>
+
 
 </body>
 
