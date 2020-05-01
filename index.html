@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <title>Pac-Man</title>
     <script>
         var init = false;
     </script>
+
     <style>
         .gameBoard {
             margin: auto;
@@ -21,291 +22,405 @@
 </head>
 
 <body>
-<header id="menu">
-    <h1>Welcome to Pac-Man World</h1>
-    <h6>Presenters: Maxim Bragilovski, Gal Azaria</h6>
-    <a href="#" class="homeButton">Home</a>
-    <a href="#" class="logOutButton">Log Out</a>
+    <header id="menu">
+        <h1>Welcome to Pac-Man World</h1>
+        <h6>Presenters: Maxim Bragilovski, Gal Azaria</h6>
+        <a href="#" class="homeButton">Home</a>
+        <a href="#" class="logOutButton">Log Out</a>
 
 
-</header>
+    </header>
 
-<header id="showcase">
+    <header id="showcase">
 
-    <br>
-    <a href="#" class="startButton">Start Game</a>
-    <a href="# " class="loginButton">Login</a>
-    <a href="#" class="RegisterButton">Register</a>
-    <br><br><br><br><br><br><br>
-    <a href="#" id="myBtn" class="aboutButton">About</a>
+        <br>
+        <a href="#" class="startButton">Start Game</a>
+        <a href="# " class="loginButton">Login</a>
+        <a href="#" class="RegisterButton">Register</a>
+        <br><br><br><br><br><br><br>
+        <a href="#" id="myBtn" class="aboutButton">About</a>
 
-</header>
+    </header>
 
-<div class="gameBoard" id="gameBoard">
-    <table>
-        <tr>
-            <td>
-                <div id="score">
-                    <label for="lblScore">SCORE:</label>
-                    <input id="lblScore" type="text"/>
-                </div>
-            </td>
-            <td>
-                <div id="time">
-                    <label for="lblTime">TIME:</label>
-                    <input id="lblTime" type="text"/>
-                </div>
-            </td>
-            <td>
-                <div id="lives">
-                    <label for="lbllives">LIVES:</label>
-                    <input id="lbllives" type="text"/>
-                </div>
-            </td>
-            <td>
-                <div id="Name">
-                    <label for="lbName">PLAYER_NAME:</label>
-                    <input id="lbName" type="text"/>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <br/><br/><br/>
-    <table>
-        <tr>
-            <td>
-                <a href="#" class="newGame">Start New Game</a>
-            </td>
-            <td>
-                <div id="game" class="abc" stype=" ">
-                    <canvas id="canvas" height="700" width="700"></canvas>
-                </div>
-            </td>
-            <td valign="top">
-                <p><b style="color:grey">Grey Circle: </b>
-                <div style="color:black">5 points.</div>
-                <b style="color:red">Red Circle: </b>
-                <div style="color:black">15 points.</div>
-                <b style="color:orange">Orange Circle: </b>
-                <div style="color:black">25 points.</div>
-                <b style="color:Blue">Blue Circle: </b>
-                <div style="color:black">50 points.</div>
-                <b style="color:SaddleBrown">Brown Circle: </b> spwans in random place and freeze the enemy.
-                <b style="color:Tan">Tan Circle: </b> slow the enemy.
+    <div class="gameBoard" id="gameBoard">
+        <table>
+            <tr>
+                <td>
+                    <div id="score">
+                        <label for="lblScore">SCORE:</label>
+                        <input id="lblScore" type="text" />
+                    </div>
+                </td>
+                <td>
+                    <div id="time">
+                        <label for="lblTime">TIME:</label>
+                        <input id="lblTime" type="text" />
+                    </div>
+                </td>
+                <td>
+                    <div id="lives">
+                        <label for="lbllives">LIVES:</label>
+                        <canvas id="Lives" width="125" height="30" >
+                            Your browser does not support the HTML5 canvas tag.</canvas>
+                    </div>
+                </td>
+                <td>
+                    <div id="Name">
+                        <label for="lbName">PLAYER_NAME:</label>
+                        <input id="lbName" type="text" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br /><br /><br />
+        <table>
+            <tr>
+                <td>
+                    <a href="#" class="newGame">Start New Game</a>
+                </td>
+                <td>
+                    <div id="game" class="abc" stype=" ">
+                        <canvas id="canvas" height="700" width="700"></canvas>
+                    </div>
+                </td>
+                <td valign="top" style="color: Black;">
+                    <table>
+                        <tr>
+                            <td>
+                                <p><b style="color:grey"><canvas id="greyCircle" width="30" height="30">
+                                            Your browser does not support the HTML5 canvas tag.</canvas> </b>
+                            </td>
+                            <td>
+                                <div style="color:black">5 points.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b style="color:red"><canvas id="redCircle" width="30" height="30">
+                                Your browser does not support the HTML5 canvas tag.</canvas>  </b></td>
+                            <td>
+                                <div style="color:black">15 points.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b style="color:orange"><canvas id="orangeCircle" width="30" height="30">
+                                Your browser does not support the HTML5 canvas tag.</canvas>  </b></td>
+                            <td>
+                                <div style="color:black">25 points.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b style="color:Blue"><canvas id="blueCircle" width="30" height="30">
+                                Your browser does not support the HTML5 canvas tag.</canvas>  </b></td>
+                            <td>
+                                <div style="color:black">50 points.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b style="color:SaddleBrown"><canvas id="brownCircle" width="30" height="30">
+                                Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
+                            <td>
+                                <div> spwans in random place and freeze the enemy.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <b style="color:Tan"><canvas id="tanCircle" width="30" height="30">
+                                Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
+                            <td> slow the enemy.</td>
+                </td>
                 </p>
-
-                <p><b>KEYS:</b>
-                    <br/>
-                    Up :
-                    <br/>
-                    Down :
-                    <br/>
-                    Left :
-                    <br/>
-                    Right :
+            </tr>
+        </table>
+        <p><b>KEYS:</b>
+            <table>
+                <tr>
+                    <td>Up :</td>
+                    <td>
+                        <div id='up'></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Down :</td>
+                    <td>
+                        <div id='down'></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Left :</td>
+                    <td>
+                        <div id='left'></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Right :</td>
+                    <td>
+                        <div id='right'></div>
+                    </td>
+                </tr>
+            </table>
             </td>
+            </tr>
+            </table>
 
-        </tr>
-    </table>
-
-</div>
-
-
-<!--    <button id="myBtn">Open Modal</button>-->
-<div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h1>Pac-Man World Game</h1>
-        <p>Developed by Maxim Bragilovski, Gal Azaria</p>
-        <p>JQuery Plugins: jquery Version 3.4.1, jquery-validate Version 1.19.1 </p>
-        <p>Difficulties: </p>
     </div>
 
-</div>
 
-<div class="showcase">
+    <!--    <button id="myBtn">Open Modal</button>-->
+    <div id="myModal" class="modal">
 
-</div>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Pac-Man World Game</h1>
+            <p>Developed by Maxim Bragilovski, Gal Azaria</p>
+            <p>JQuery Plugins: jquery Version 3.4.1, jquery-validate Version 1.19.1 </p>
+            <p>Difficulties: </p>
+        </div>
 
-<div class="wrapper">
-    <div class="left">
-        <h3>PacMan</h3>
-        <img src=img/log.jpg alt="img">
     </div>
-    <div class="right">
-        <div class="tabs">
-            <ul>
-                <li class="register_li">Register</li>
-                <li class="login_li">Login</li>
-            </ul>
+
+    <div class="showcase">
+
+    </div>
+
+    <div class="wrapper">
+        <div class="left">
+            <h3>PacMan</h3>
+            <img src=img/log.jpg alt="img">
         </div>
+        <div class="right">
+            <div class="tabs">
+                <ul>
+                    <li class="register_li">Register</li>
+                    <li class="login_li">Login</li>
+                </ul>
+            </div>
 
-        <div class="register" id="reg">
-
-
-            <form onsubmit="regForm()" id="regForm" name="registration">
-
-
-<!--                <label for="username"></label>-->
-                <input type="text" name="username" id="username" placeholder="User Name" class="input"/>
-
-<!--                <label for="firstname"></label>-->
-                <input type="text" name="firstname" id="firstname" placeholder="First Name" class="input"/>
-
-<!--                <label for="lastname"></label>-->
-                <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="input"/>
-
-<!--                <label for="email"></label>-->
-                <input type="email" name="email" id="email" placeholder="Email" class="input"/>
-
-<!--                <label for="password"></label>-->
-                <input type="password" name="password" id="password" placeholder="Password" class="input"/>
-
-<!--                <label for="birthday"></label>-->
-                <input placeholder="Birthday" required type="date" name="birthday" id="birthday" name="birthday" class="input">
-
-                <button class="btn" type="submit">Register</button>
-
-            </form>
-
-            <!--            <form class = "cmxform" id="signForm" method="get" action="form-handler.html" autocomplete="off">-->
-
-            <!--                <div class="input_field">-->
-            <!--                    <label for="username"></label>-->
-            <!--                    <input type="text" id="username" placeholder="Username" class= input>-->
-
-            <!--                </div>-->
-            <!--                <div class="input_field">-->
-            <!--                    <label for="password"></label>-->
-            <!--                    <input type="password" id="password" placeholder="Password" class="input">-->
-
-            <!--                </div>-->
-
-            <!--                <div class="input_field">-->
-            <!--                    <label for="conPassword"></label>-->
-            <!--                    <input type="password" id="conPassword" placeholder="Confirm Password" class="input">-->
-
-            <!--                </div>-->
-
-            <!--                <div class="input_field">-->
-            <!--                    <label for="name"></label>-->
-            <!--                    <input type="text" id="name" placeholder="Full name" class="input">-->
-
-            <!--                </div>-->
-            <!--                <div class="input_field">-->
-            <!--                    <label for="email"></label>-->
-            <!--                    <input type="email" id="email" placeholder="Email" class="input">-->
-            <!--                </div>-->
-            <!--                <a href="#" id="submit" class="btn">Register</a>-->
-
-            <!--            </form>-->
-
-        </div>
+            <div class="register" id="reg">
 
 
-        <div class="login">
-            <form onsubmit="logIn()" name="">
-<!--                <label for="loginUser"></label>-->
-                <input type="text" name="loginUser" id="loginUser" placeholder="User Name" class="input"/>
-
-<!--                <label for="loginPassword"></label>-->
-                <input type="password" name="loginPassword" id="loginPassword" placeholder="Password"
-                       class="input"/>
-
-            </form>
-
-            <button onclick="logIn()" class="btn" type="submit">Login</button>
+                <form onsubmit="regForm()" id="regForm" name="registration">
 
 
+                    <!--                <label for="username"></label>-->
+                    <input type="text" name="username" id="username" placeholder="User Name" class="input" />
+
+                    <!--                <label for="firstname"></label>-->
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name" class="input" />
+
+                    <!--                <label for="lastname"></label>-->
+                    <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="input" />
+
+                    <!--                <label for="email"></label>-->
+                    <input type="email" name="email" id="email" placeholder="Email" class="input" />
+
+                    <!--                <label for="password"></label>-->
+                    <input type="password" name="password" id="password" placeholder="Password" class="input" />
+
+                    <!--                <label for="birthday"></label>-->
+                    <input placeholder="Birthday" required type="date" name="birthday" id="birthday" name="birthday"
+                        class="input">
+
+                    <button class="btn" type="submit">Register</button>
+
+                </form>
+
+                <!--            <form class = "cmxform" id="signForm" method="get" action="form-handler.html" autocomplete="off">-->
+
+                <!--                <div class="input_field">-->
+                <!--                    <label for="username"></label>-->
+                <!--                    <input type="text" id="username" placeholder="Username" class= input>-->
+
+                <!--                </div>-->
+                <!--                <div class="input_field">-->
+                <!--                    <label for="password"></label>-->
+                <!--                    <input type="password" id="password" placeholder="Password" class="input">-->
+
+                <!--                </div>-->
+
+                <!--                <div class="input_field">-->
+                <!--                    <label for="conPassword"></label>-->
+                <!--                    <input type="password" id="conPassword" placeholder="Confirm Password" class="input">-->
+
+                <!--                </div>-->
+
+                <!--                <div class="input_field">-->
+                <!--                    <label for="name"></label>-->
+                <!--                    <input type="text" id="name" placeholder="Full name" class="input">-->
+
+                <!--                </div>-->
+                <!--                <div class="input_field">-->
+                <!--                    <label for="email"></label>-->
+                <!--                    <input type="email" id="email" placeholder="Email" class="input">-->
+                <!--                </div>-->
+                <!--                <a href="#" id="submit" class="btn">Register</a>-->
+
+                <!--            </form>-->
+
+            </div>
+
+
+            <div class="login">
+                <form onsubmit="logIn()" name="">
+                    <!--                <label for="loginUser"></label>-->
+                    <input type="text" name="loginUser" id="loginUser" placeholder="User Name" class="input" />
+
+                    <!--                <label for="loginPassword"></label>-->
+                    <input type="password" name="loginPassword" id="loginPassword" placeholder="Password"
+                        class="input" />
+
+                </form>
+
+                <button onclick="logIn()" class="btn" type="submit">Login</button>
+
+
+            </div>
         </div>
     </div>
-</div>
 
-<div id="gameSetting">
-    <container id="wrapSet">
-        <form onsubmit="setSettings()" id="settings">
+    <div id="gameSetting">
+        <container id="wrapSet">
+            <form onsubmit="setSettings()" id="settings">
 
 
-            <span>
+                <span>
 
-                <label>Up Key</label>  <output id="upB">38</output>
-                <input maxlength="1" type="text" id="upButtom" name="upButtom" class="input"
-                       onkeydown="upButtom.value=''; upB.value=event.keyCode"/>
+                    <label>Up Key</label> <output id="upB">38</output>
+                    <input maxlength="1" type="text" id="upButtom" name="upButtom" class="input"
+                        onkeydown="upButtom.value=''; upB.value=event.keyCode" />
 
                 </span>
 
 
-            <span>
-            <label>Down Key</label> <output id="downB">40</output>
-                <input maxlength="1" type="text" id="downButtom" name="downButtom" class="input"
-                       onkeydown="downButtom.value=''; downB.value=event.keyCode"/>
+                <span>
+                    <label>Down Key</label> <output id="downB">40</output>
+                    <input maxlength="1" type="text" id="downButtom" name="downButtom" class="input"
+                        onkeydown="downButtom.value=''; downB.value=event.keyCode" />
 
-            </span>
-
-
-            <span>
-            <label>Left Key</label> <output id="leftB">37</output>
-                <input maxlength="1" type="text" id="leftButtom" name="leftButtom" class="input"
-                       onkeydown="leftButtom.value=''; leftB.value=event.keyCode"/>
-
-            </span>
+                </span>
 
 
-            <span>
-            <label>Right Key</label> <output id="rightB">39</output>
-                <input maxlength="1" type="text" id="rightButtom" name="rightButtom" class="input"
-                       onkeydown="rightButtom.value=''; rightB.value=event.keyCode"/>
+                <span>
+                    <label>Left Key</label> <output id="leftB">37</output>
+                    <input maxlength="1" type="text" id="leftButtom" name="leftButtom" class="input"
+                        onkeydown="leftButtom.value=''; leftB.value=event.keyCode" />
 
-            </span>
-
-
-            <input type="text" name="numberBalls" id="numberBalls" placeholder="Number Of Balls, 50-90" class="input"/>
-
-            <input type="text" name="timer" id="timer" placeholder="Set Time, above 60 seconds" class="input"/>
-
-            <input type="text" name="monsters" id="monsters" placeholder="Number Of Monsters, 1-4" class="input"/>
-
-            <button id="setSet" class="btn" type="submit">Apply Settings And Start The Game</button>
-
-            <a href="#" class="randomB">Random</a>
-
-        </form>
-    </container>
-</div>
-
-<!--    <audio id="Music">-->
-<!--        <source src="ssong.mp3" type="audio/mpeg">-->
-<!--    </audio>-->
+                </span>
 
 
+                <span>
+                    <label>Right Key</label> <output id="rightB">39</output>
+                    <input maxlength="1" type="text" id="rightButtom" name="rightButtom" class="input"
+                        onkeydown="rightButtom.value=''; rightB.value=event.keyCode" />
 
-<script src="./jquery-3.4.1.slim.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
-<script src="./app.js"></script>
+                </span>
 
-<script src="code/menu.js"></script>
-<script src="code/login.js"></script>
-<script src="code/about.js"></script>
-<script src="code/bottom.js"></script>
-<script src="code/settings.js   "></script>
-<script src="code/firstRun.js"></script>
-<script src="code/form-validation.js"></script>
+
+                <input type="text" name="numberBalls" id="numberBalls" placeholder="Number Of Balls, 50-90"
+                    class="input" />
+
+                <input type="text" name="timer" id="timer" placeholder="Set Time, above 60 seconds" class="input" />
+
+                <input type="text" name="monsters" id="monsters" placeholder="Number Of Monsters, 1-4" class="input" />
+
+                <button id="setSet" class="btn" type="submit">Apply Settings And Start The Game</button>
+
+                <a href="#" class="randomB">Random</a>
+
+            </form>
+        </container>
+    </div>
+
+    <!--    <audio id="Music">-->
+    <!--        <source src="ssong.mp3" type="audio/mpeg">-->
+    <!--    </audio>-->
+
+
+
+    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+    <script src="./app.js"></script>
+
+    <script src="code/menu.js"></script>
+    <script src="code/login.js"></script>
+    <script src="code/about.js"></script>
+    <script src="code/bottom.js"></script>
+    <script src="code/settings.js   "></script>
+    <script src="code/firstRun.js"></script>
+    <script src="code/form-validation.js"></script>
+
+
+    <script>
+        if (init) {
+
+        }
+        else {
+            openWeb();
+            initiateSystem();
+            init = true
+        }
+    </script>
+
+    <script>
+        var c = document.getElementById("greyCircle");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "grey"; //color
+		ctx.fill();
+    </script>
 
 <script>
-    if(init) {
-
-    }
-    else{
-        openWeb();
-        initiateSystem();
-        init = true
-    }
+    var c = document.getElementById("redCircle");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "red"; //color
+    ctx.fill();
 </script>
 
+<script>
+    var c = document.getElementById("orangeCircle");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "orange"; //color
+    ctx.fill();
+</script>
+
+<script>
+    var c = document.getElementById("blueCircle");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "blue"; //color
+    ctx.fill();
+</script>
+
+<script>
+    var c = document.getElementById("brownCircle");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "brown"; //color
+    ctx.fill();
+</script>
+
+<script>
+    var c = document.getElementById("tanCircle");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "tan"; //color
+    ctx.fill();
+</script>
 
 </body>
 
