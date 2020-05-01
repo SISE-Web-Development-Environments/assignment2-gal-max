@@ -17,10 +17,13 @@ function regForm() {
             username: "required",
             firstname:{
                 required: true,
+                pattern: /^[a-zA-Z]*$/,
 
             },
             lastname:{
                 required: true,
+                pattern: /^[a-zA-Z]*$/,
+
             },
 
             email: {
@@ -30,17 +33,28 @@ function regForm() {
             password: {
                 required: true,
                 minlength: 6
-            }
+            },
+            birthday:{
+                required: true,
+            },
         },
         // Specify validation error messages
         messages: {
-            firstname: "Please enter your firstname",
-            lastname: "Please enter your lastname",
+            firstname: {
+                required: "Please enter your firstname",
+                pattern: "First name should contain only letters"
+            },
+            lastname: {
+                required: "Please enter your lastname",
+                pattern: "Last name should contain only letters"
+
+            },
             password: {
                 required: "Please provide a password",
-                minlength: "Your password must be at least 6 characters long"
+                minlength: "Your password must be at least 6 characters long",
             },
-            email: "Please enter a valid email address"
+            email: "Please enter a valid email address",
+            birthday: "Please provide a valid date",
         },
 
 
@@ -66,7 +80,7 @@ function createNewUser(){
         return;
     }
 
-    let userList = [password,firstName,lastName,email,date]
+    let userList = [password,firstName,lastName,email,date,userName]
     keyUser[userName] = userList;
     alert("An account has been successfully created.")
     $(".login_li").addClass("active");

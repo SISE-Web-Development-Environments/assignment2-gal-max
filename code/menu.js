@@ -9,6 +9,7 @@
 
 let keyUser = new Object(); // key = username, value = list of details about the user name.
 let initiated = false;
+let currUser = new Array();
 
 
 $(document).ready(function (e) {
@@ -57,14 +58,12 @@ $(document).ready(function (e) {
 
     $(".startButton").click(function ()
     {
-        $(".gameBoard").show();
+        $("#gameSetting").show();
         $(".wrapper").hide();
         $("#showcase").hide()
         $(".register").hide();
         $(".login").hide();
-        Start();
         initiated = true;
-
     });
 
     $(".RegisterButton").click(function()
@@ -105,6 +104,7 @@ $(document).ready(function (e) {
     $(".homeButton").click(function()
     {
         stopGame();
+        $("#gameSetting").hide();
         $(".gameBoard").hide();
         $(".wrapper").hide();
         $("#showcase").show();

@@ -27,6 +27,9 @@ var fltOpen = new Object();
 var prevPackMove
 //var music
 
+
+
+
 var PLAYER_NAME = "Max"
 var TIME = 200;
 var BALLS_NUMBER = 90;
@@ -191,6 +194,17 @@ function Start() {
 		false
 	);
 	interval = setInterval(UpdatePosition, 150);
+}
+
+function setPlayerSettings(upP, bottomP, leftP,rightP, balls, time, monsters){
+	PLAYER_NAME = currUser[5];
+	TIME = time;
+	BALLS_NUMBER = balls;
+	GHOUST_NUMBER = monsters;
+	UP = leftP;
+	LEFT = upP;
+	DOWN = rightP;
+	RIGHT = bottomP
 }
 
 function findRandomEmptyCell(board) {
