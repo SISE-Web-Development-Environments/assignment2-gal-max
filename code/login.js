@@ -26,12 +26,12 @@ function logIn(){
         $(".logOutButton").show();
         $(".RegisterButton").hide();
         $(".loginButton").hide();
-        // alert("You have been successfully logged in!")
+        alert("You have been successfully logged in!")
 
         return;
     }
     else{
-        // alert("Please try again")
+        alert("Please try again")
         return;
     }
 }
