@@ -32,7 +32,8 @@ function regForm() {
             },
             password: {
                 required: true,
-                minlength: 6
+                minlength: 6,
+                pattern: /[A-Za-z0-9]*([a-zA-Z]+[0-9]+|[0-9]+[a-zA-Z]+)/,
             },
             birthday:{
                 required: true,
@@ -52,6 +53,7 @@ function regForm() {
             password: {
                 required: "Please provide a password",
                 minlength: "Your password must be at least 6 characters long",
+                pattern: "Your password must have at least 1 number and 1 char"
             },
             email: "Please enter a valid email address",
             birthday: "Please provide a valid date",
