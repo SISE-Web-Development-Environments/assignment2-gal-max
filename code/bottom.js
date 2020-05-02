@@ -23,6 +23,9 @@ $(".newGame").click(function ()
 
 $(".logOutButton").click(function ()
 {
+    stopGame();
+    $("#gameSetting").hide();
+    $(".gameBoard").hide();
     $(".wrapper").hide();
     $("#showcase").show()
     $(".startButton").hide();
