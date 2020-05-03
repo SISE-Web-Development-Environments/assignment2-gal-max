@@ -1,31 +1,31 @@
-var context ;
-var shape// = new Object();
+var context;
+var shape
 var board;
 var score;
 var pac_color;
 var start_time;
 var time_elapsed;
-var angle// = new Object();
+var angle;
 var interval;
 var board;
-var ghostArray //= []
-var arrayPos //= [];
-var ExtraPoint //= new Object()
-var counter// = 0;
-var colors = ["DarkBlue", "CornflowerBlue"]
-var turn //= 0;
-var slowMotion //= 0;
-var specialPill //= new Object()
-var specialPillTime// = 0;
-var stop// = false;
-var moveSpeed //= 1;
-var timerforEndstop //= 0;
+var ghostArray;
+var arrayPos;
+var ExtraPoint;
+var counter;
+var colors = ["DarkBlue", "CornflowerBlue"];
+var turn;
+var slowMotion;
+var specialPill;
+var specialPillTime;
+var stop;
+var moveSpeed;
+var timerforEndstop;
 var checker;
 var dir = -3;
 var pctOpen = 0.05;
 var fltOpen = new Object();
-var prevPackMove
-//var music
+var prevPackMove;
+var music
 var keyboardMap = [
 	"", // [0]
 	"", // [1]
@@ -283,8 +283,8 @@ var keyboardMap = [
 	"PA1", // [253]
 	"WIN_OEM_CLEAR", // [254]
 	"" // [255]
-  ];
-var PLAYER_NAME = "Max"
+];
+var PLAYER_NAME = "defualt"
 var TIME = 200;
 var BALLS_NUMBER = 90;
 var GHOUST_NUMBER = 4;
@@ -293,21 +293,20 @@ var pacman_remain = 5;
 var UP = 37;
 var LEFT = 38
 var DOWN = 39;
-var RIGHT = 40
+var RIGHT = 40;
 
 
 $(document).ready(function () {
-	 context = canvas.getContext("2d");
+	context = canvas.getContext("2d");
 });
-
 
 function Start() {
 	prevPackMove = 0;
 	fltOpen.x = 0.15
 	fltOpen.y = 1.85
 	checker = false;
-//	music = document.getElementById("Music")
-//	music.play();
+	music = document.getElementById("Music")
+	music.play();
 	pacman_remain = 5
 	shape = new Object();
 	angle = new Object();
@@ -318,11 +317,11 @@ function Start() {
 	ExtraPoint.x = 22
 	ExtraPoint.y = 20
 	turn = 0;
- 	slowMotion = 0;
- 	specialPill = new Object()
- 	specialPillTime = 0;
- 	this.stop = false;
- 	moveSpeed = 1;
+	slowMotion = 0;
+	specialPill = new Object()
+	specialPillTime = 0;
+	this.stop = false;
+	moveSpeed = 1;
 	timerforEndstop = 0;
 	ExtraPoint.live = true
 	board = [
@@ -450,8 +449,12 @@ function Start() {
 	interval = setInterval(UpdatePosition, 150);
 }
 
-function setPlayerSettings(upP, bottomP, leftP,rightP, balls, time, monsters){
+function setPlayerSettings(upP, bottomP, leftP, rightP, balls, time, monsters) {
 	PLAYER_NAME = currUser[5];
+	if(PLAYER_NAME == undefined){
+		PLAYER_NAME = "p"
+	}
+
 	TIME = time;
 	BALLS_NUMBER = balls;
 	GHOUST_NUMBER = monsters;
@@ -461,11 +464,11 @@ function setPlayerSettings(upP, bottomP, leftP,rightP, balls, time, monsters){
 	RIGHT = bottomP
 }
 
-function updateMovmentInfo(){
-	document.getElementById('left').innerHTML =  keyboardMap[UP];
-	document.getElementById('right').innerHTML =  keyboardMap[DOWN];
-	document.getElementById('up').innerHTML =  keyboardMap[LEFT];
-	document.getElementById('down').innerHTML =  keyboardMap[RIGHT];
+function updateMovmentInfo() {
+	document.getElementById('left').innerHTML = keyboardMap[UP];
+	document.getElementById('right').innerHTML = keyboardMap[DOWN];
+	document.getElementById('up').innerHTML = keyboardMap[LEFT];
+	document.getElementById('down').innerHTML = keyboardMap[RIGHT];
 }
 
 function findRandomEmptyCell(board) {
@@ -524,26 +527,26 @@ function Draw(pctOpen) {
 				context.arc(center.x, center.y, 10, (this.angle.x - pctOpen.x) * Math.PI, (this.angle.y + pctOpen.y) * Math.PI);
 				context.lineTo(center.x, center.y);
 				context.closePath();
-				context.fillStyle = "#FF0";
+				context.fillStyle = pac_color;
 				context.fill();
 				context.strokeStyle = '#000';
 				context.stroke();
 				context.beginPath();
-				if(prevPackMove == 0 ||prevPackMove == 2){
-				context.arc(center.x - 2 , center.y - 5, 2, 0, 2 * Math.PI); // circle
+				if (prevPackMove == 0 || prevPackMove == 2) {
+					context.arc(center.x - 2, center.y - 5, 2, 0, 2 * Math.PI); // circle
 				}
-				if(prevPackMove == 1){
-				context.arc(center.x + 2, center.y - 5, 2, 0, 2 * Math.PI); // circle
+				if (prevPackMove == 1) {
+					context.arc(center.x + 2, center.y - 5, 2, 0, 2 * Math.PI); // circle
 				}
-				if(prevPackMove == 3){
+				if (prevPackMove == 3) {
 					context.arc(center.x - 2, center.y + 5, 2, 0, 2 * Math.PI); // circle
 				}
-				if(prevPackMove == 4){
+				if (prevPackMove == 4) {
 					context.arc(center.x + 2, center.y - 5, 2, 0, 2 * Math.PI); // circle
 				}
 				context.fillStyle = "black"; //color					
 				context.fill();
-			 
+
 			} else if (board[i][j] == 11) { //1
 				context.beginPath();
 				context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
@@ -571,13 +574,13 @@ function Draw(pctOpen) {
 
 			else if (board[i][j] == 30) { //1
 				context.beginPath();
-				context.arc(center.x, center.y, specialPillTime % 7, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, specialPillTime % 7, 0, 2 * Math.PI);
 				context.fillStyle = "SaddleBrown"; //color
 				context.fill();
 			}
 			else if (board[i][j] == 20) { //1
 				context.beginPath();
-				context.arc(center.x, center.y, 5, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, 5, 0, 2 * Math.PI);
 				context.fillStyle = colors[counter]
 				if (counter == 1) {
 					counter = 0
@@ -587,21 +590,21 @@ function Draw(pctOpen) {
 				}
 				context.fill();
 			}
-			else if (board[i][j] == 4) { // 4
+			else if (board[i][j] == 4) {
 				context.beginPath();
 				context.rect(center.x - 10, center.y - 10, 20, 20);
-				context.fillStyle = "black"; //color
+				context.fillStyle = "black";
 				context.fill();
 
 			} else if (board[i][j] == 5) {
 				context.beginPath();
-				context.arc((center.x - 10) + 10,(center.y - 10) + 10,10,0, Math.PI, true
+				context.arc((center.x - 10) + 10, (center.y - 10) + 10, 10, 0, Math.PI, true
 				);
 				if (stop) {
 					context.fillStyle = "Blue";
 				}
 				else {
-					context.fillStyle = "Coral"; //color
+					context.fillStyle = "Coral";
 				}
 				context.lineTo((center.x - 10), (center.y - 10) + 20 * (3 / 4));
 				for (let i = 1; i <= 4; ++i) {
@@ -617,15 +620,15 @@ function Draw(pctOpen) {
 				context.fill();
 
 				context.beginPath();
-				context.arc(center.x - 4, center.y - 5, 3, 0, 2 * Math.PI); // circle
-				context.arc(center.x + 4, center.y - 5, 3, 0, 2 * Math.PI); // circle
-				context.fillStyle = "black"; //color
+				context.arc(center.x - 4, center.y - 5, 3, 0, 2 * Math.PI);
+				context.arc(center.x + 4, center.y - 5, 3, 0, 2 * Math.PI);
+				context.fillStyle = "black";
 				context.fill();
 
 				context.beginPath();
-				context.arc(center.x - 3, center.y - 5, 1, 0, 2 * Math.PI); // circle
-				context.arc(center.x + 5, center.y - 5, 1, 0, 2 * Math.PI); // circle
-				context.fillStyle = "White"; //color
+				context.arc(center.x - 3, center.y - 5, 1, 0, 2 * Math.PI);
+				context.arc(center.x + 5, center.y - 5, 1, 0, 2 * Math.PI);
+				context.fillStyle = "White";
 				context.fill();
 			}
 		}
@@ -687,37 +690,38 @@ function UpdatePosition() {
 	}
 	if (time_elapsed <= 0 && score < 100) {
 		window.clearInterval(interval);
-	//	music.pause()
+		music.pause()
 		window.alert("You are better than " + score + " points!");
 		Start()
 	}
 	if (time_elapsed <= 0 && score >= 100) {
 		window.clearInterval(interval);
-	//	music.pause()
+		music.pause()
 		window.alert("Winner!!!");
 		Start()
 	}
 	if (pacman_remain == 0) {
 		window.clearInterval(interval);
-	//	music.pause()
+		music.pause()
 		window.alert("Loser!");
 		Start()
 	}
 	else {
-		fltOpen.x = pctOpen*dir
-		fltOpen.y = pctOpen*dir
-		if(dir ==3){
-		dir = -3;
+		fltOpen.x = pctOpen * dir
+		fltOpen.y = pctOpen * dir
+		if (dir == 3) {
+			dir = -3;
 		}
-		else{
+		else {
 			dir++
 		}
 		Draw(fltOpen);
 	}
 }
 
-function stopGame(){
+function stopGame() {
 	window.clearInterval(interval);
+	music.pause()
 }
 
 function ExtraPointMove() {
@@ -779,9 +783,9 @@ function ExtraPointMove() {
 }
 
 function collision() {
-	for(let u=0 ; u < GHOUST_NUMBER ; u++){
+	for (let u = 0; u < GHOUST_NUMBER; u++) {
 		if (shape.i == ghostArray[u].x && shape.j == ghostArray[u].y)
-		checker = true
+			checker = true
 	}
 	if (checker) {
 		score = score - 10
@@ -812,9 +816,9 @@ function collision() {
 function movePackman() {
 	let isMoved = false;
 	var x = GetKeyPressed();
-	if (x == 1 ) {
+	if (x == 1) {
 		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-			if(shape.j > 0 && board[shape.i][shape.j - 1] == 5){
+			if (shape.j > 0 && board[shape.i][shape.j - 1] == 5) {
 				checker = true;
 			}
 			shape.j--;
@@ -826,7 +830,7 @@ function movePackman() {
 	}
 	if (x == 2) {
 		if (shape.j < board[0].length && board[shape.i][shape.j + 1] != 4) {
-			if(shape.j < board[0].length && board[shape.i][shape.j + 1] == 5){
+			if (shape.j < board[0].length && board[shape.i][shape.j + 1] == 5) {
 				checker = true;
 			}
 			shape.j++;
@@ -838,7 +842,7 @@ function movePackman() {
 	}
 	if (x == 3) {
 		if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-			if(shape.i > 0 && board[shape.i - 1][shape.j]  == 5){
+			if (shape.i > 0 && board[shape.i - 1][shape.j] == 5) {
 				checker = true;
 			}
 			shape.i--;
@@ -850,7 +854,7 @@ function movePackman() {
 	}
 	if (x == 4) {
 		if (shape.i < board.length && board[shape.i + 1][shape.j] != 4) {
-			if(shape.i < board.length && board[shape.i + 1][shape.j] == 5){
+			if (shape.i < board.length && board[shape.i + 1][shape.j] == 5) {
 				checker = true;
 			}
 			shape.i++;
@@ -860,10 +864,10 @@ function movePackman() {
 			prevPackMove = x;
 		}
 	}
-	if(!isMoved){
-		if (prevPackMove == 1 ) {
+	if (!isMoved) {
+		if (prevPackMove == 1) {
 			if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-				if(shape.j > 0 && board[shape.i][shape.j - 1] == 5){
+				if (shape.j > 0 && board[shape.i][shape.j - 1] == 5) {
 					checker = true;
 				}
 				shape.j--;
@@ -874,7 +878,7 @@ function movePackman() {
 		}
 		if (prevPackMove == 2) {
 			if (shape.j < board[0].length && board[shape.i][shape.j + 1] != 4) {
-				if(shape.j < board[0].length && board[shape.i][shape.j + 1] == 5){
+				if (shape.j < board[0].length && board[shape.i][shape.j + 1] == 5) {
 					checker = true;
 				}
 				shape.j++;
@@ -884,7 +888,7 @@ function movePackman() {
 		}
 		if (prevPackMove == 3) {
 			if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-				if(shape.i > 0 && board[shape.i - 1][shape.j]  == 5){
+				if (shape.i > 0 && board[shape.i - 1][shape.j] == 5) {
 					checker = true;
 				}
 				shape.i--;
@@ -894,7 +898,7 @@ function movePackman() {
 		}
 		if (prevPackMove == 4) {
 			if (shape.i < board.length && board[shape.i + 1][shape.j] != 4) {
-				if(shape.i < board.length && board[shape.i + 1][shape.j] == 5){
+				if (shape.i < board.length && board[shape.i + 1][shape.j] == 5) {
 					checker = true;
 				}
 				shape.i++;
@@ -1006,14 +1010,14 @@ function goDown(k) {
 }
 
 function goUp(k) {
-	if (ghostArray[k].x > 0 && board[ghostArray[k].x - 1][ghostArray[k].y] != 4 ) { //up
+	if (ghostArray[k].x > 0 && board[ghostArray[k].x - 1][ghostArray[k].y] != 4) { //up
 		ghostArray[k].x--;
 		//board[ghostArray[k].x][ghostArray[k].y] = 5;
 	}
 }
 
 function goLeft(k) {
-	if (ghostArray[k].y > 0 && board[ghostArray[k].x][ghostArray[k].y - 1] != 4 ) { //left
+	if (ghostArray[k].y > 0 && board[ghostArray[k].x][ghostArray[k].y - 1] != 4) { //left
 		ghostArray[k].y--;
 		//	board[ghostArray[k].x][ghostArray[k].y] = 5;
 	}
@@ -1026,33 +1030,33 @@ function goRight(k) {
 	}
 }
 
-function updateLives(){
+function updateLives() {
 	let q = pacman_remain * 20
 	let c = document.getElementById("Lives");
 	let ctx = c.getContext("2d");
 	let y = 0
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	for( let i = 0 ; i < q ; i=i+20){
-	ctx.beginPath();
-	ctx.arc(12+y, 12 , 10, 0.15*Math.PI, 1.85 * Math.PI);
-	ctx.lineTo(12 + y, 12);
-	ctx.closePath();
-	ctx.fillStyle = "#FF0";
-	ctx.fill();
-	ctx.strokeStyle = '#000';
-	ctx.stroke();
-	ctx.beginPath();
-	ctx.arc(12+y-2, 12-5 , 2, 0.15*Math.PI, 1.85 * Math.PI);
-	ctx.fillStyle = "#000";
-	ctx.fill();
-	y = y+25
+	for (let i = 0; i < q; i = i + 20) {
+		ctx.beginPath();
+		ctx.arc(12 + y, 12, 10, 0.15 * Math.PI, 1.85 * Math.PI);
+		ctx.lineTo(12 + y, 12);
+		ctx.closePath();
+		ctx.fillStyle = "#FF0";
+		ctx.fill();
+		ctx.strokeStyle = '#000';
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.arc(12 + y - 2, 12 - 5, 2, 0.15 * Math.PI, 1.85 * Math.PI);
+		ctx.fillStyle = "#000";
+		ctx.fill();
+		y = y + 25
 	}
-	}
+}
 
-window.addEventListener("keydown", function(e) {
-    // space and arrow keys
-    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-        e.preventDefault();
-    }
+window.addEventListener("keydown", function (e) {
+	// space and arrow keys
+	if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+		e.preventDefault();
+	}
 }, false);
 

@@ -63,7 +63,7 @@
                 <td>
                     <div id="lives">
                         <label for="lbllives">LIVES:</label>
-                        <canvas id="Lives" width="125" height="30" >
+                        <canvas id="Lives" width="125" height="30">
                             Your browser does not support the HTML5 canvas tag.</canvas>
                     </div>
                 </td>
@@ -99,35 +99,35 @@
                         </tr>
                         <tr>
                             <td><b style="color:red"><canvas id="redCircle" width="30" height="30">
-                                Your browser does not support the HTML5 canvas tag.</canvas>  </b></td>
+                                        Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
                             <td>
                                 <div style="color:black">15 points.</div>
                             </td>
                         </tr>
                         <tr>
                             <td><b style="color:orange"><canvas id="orangeCircle" width="30" height="30">
-                                Your browser does not support the HTML5 canvas tag.</canvas>  </b></td>
+                                        Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
                             <td>
                                 <div style="color:black">25 points.</div>
                             </td>
                         </tr>
                         <tr>
                             <td><b style="color:Blue"><canvas id="blueCircle" width="30" height="30">
-                                Your browser does not support the HTML5 canvas tag.</canvas>  </b></td>
+                                        Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
                             <td>
                                 <div style="color:black">50 points.</div>
                             </td>
                         </tr>
                         <tr>
                             <td><b style="color:SaddleBrown"><canvas id="brownCircle" width="30" height="30">
-                                Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
+                                        Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
                             <td>
                                 <div> spwans in random place and freeze the enemy.</div>
                             </td>
                         </tr>
                         <tr>
                             <td> <b style="color:Tan"><canvas id="tanCircle" width="30" height="30">
-                                Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
+                                        Your browser does not support the HTML5 canvas tag.</canvas> </b></td>
                             <td> slow the enemy.</td>
                 </td>
                 </p>
@@ -227,38 +227,6 @@
 
                 </form>
 
-                <!--            <form class = "cmxform" id="signForm" method="get" action="form-handler.html" autocomplete="off">-->
-
-                <!--                <div class="input_field">-->
-                <!--                    <label for="username"></label>-->
-                <!--                    <input type="text" id="username" placeholder="Username" class= input>-->
-
-                <!--                </div>-->
-                <!--                <div class="input_field">-->
-                <!--                    <label for="password"></label>-->
-                <!--                    <input type="password" id="password" placeholder="Password" class="input">-->
-
-                <!--                </div>-->
-
-                <!--                <div class="input_field">-->
-                <!--                    <label for="conPassword"></label>-->
-                <!--                    <input type="password" id="conPassword" placeholder="Confirm Password" class="input">-->
-
-                <!--                </div>-->
-
-                <!--                <div class="input_field">-->
-                <!--                    <label for="name"></label>-->
-                <!--                    <input type="text" id="name" placeholder="Full name" class="input">-->
-
-                <!--                </div>-->
-                <!--                <div class="input_field">-->
-                <!--                    <label for="email"></label>-->
-                <!--                    <input type="email" id="email" placeholder="Email" class="input">-->
-                <!--                </div>-->
-                <!--                <a href="#" id="submit" class="btn">Register</a>-->
-
-                <!--            </form>-->
-
             </div>
 
 
@@ -333,17 +301,17 @@
         </container>
     </div>
 
-    <!--    <audio id="Music">-->
-    <!--        <source src="ssong.mp3" type="audio/mpeg">-->
-    <!--    </audio>-->
+       <audio id="Music">
+           <source src="music/song.mp3" type="audio/mpeg">
+       </audio>
 
 
 
-    <script src="./jquery-3.4.1.slim.min.js"></script>
+    <script src="code/jquery-3.4.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
-    <script src="./app.js"></script>
+    <script src="code/app.js"></script>
 
     <script src="code/menu.js"></script>
     <script src="code/login.js"></script>
@@ -372,58 +340,58 @@
         ctx.arc(12, 12, 8, 0, 2 * Math.PI);
         ctx.stroke();
         ctx.fillStyle = "grey"; //color
-		ctx.fill();
+        ctx.fill();
     </script>
 
-<script>
-    var c = document.getElementById("redCircle");
-    var ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "red"; //color
-    ctx.fill();
-</script>
+    <script>
+        var c = document.getElementById("redCircle");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "red"; //color
+        ctx.fill();
+    </script>
 
-<script>
-    var c = document.getElementById("orangeCircle");
-    var ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "orange"; //color
-    ctx.fill();
-</script>
+    <script>
+        var c = document.getElementById("orangeCircle");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "orange"; //color
+        ctx.fill();
+    </script>
 
-<script>
-    var c = document.getElementById("blueCircle");
-    var ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "blue"; //color
-    ctx.fill();
-</script>
+    <script>
+        var c = document.getElementById("blueCircle");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "blue"; //color
+        ctx.fill();
+    </script>
 
-<script>
-    var c = document.getElementById("brownCircle");
-    var ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "brown"; //color
-    ctx.fill();
-</script>
+    <script>
+        var c = document.getElementById("brownCircle");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "brown"; //color
+        ctx.fill();
+    </script>
 
-<script>
-    var c = document.getElementById("tanCircle");
-    var ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(12, 12, 8, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "tan"; //color
-    ctx.fill();
-</script>
+    <script>
+        var c = document.getElementById("tanCircle");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(12, 12, 8, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "tan"; //color
+        ctx.fill();
+    </script>
 
 </body>
 
