@@ -469,6 +469,9 @@ function updateMovmentInfo() {
 	document.getElementById('right').innerHTML = keyboardMap[DOWN];
 	document.getElementById('up').innerHTML = keyboardMap[LEFT];
 	document.getElementById('down').innerHTML = keyboardMap[RIGHT];
+	document.getElementById('Balls').innerHTML = BALLS_NUMBER;
+	document.getElementById('Monsters').innerHTML = GHOUST_NUMBER;
+	document.getElementById('Time').innerHTML = TIME +"sec";
 }
 
 function findRandomEmptyCell(board) {

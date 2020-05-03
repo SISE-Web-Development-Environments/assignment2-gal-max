@@ -15,8 +15,14 @@ $(".loginButton").click(function ()
 
 $(".newGame").click(function ()
 {
+    $("#gameSetting").show();
+    $(".wrapper").hide();
+    $("#showcase").hide()
+    $(".register").hide();
+    $(".login").hide();
+    $(".gameBoard").hide();
+    initiated = true;
     stopGame();
-    Start();
     initiated = true;
 
 });
